@@ -3,14 +3,19 @@
 subclass_create weapon_deagle_prefab {"classname" "weapon_awp" "rendercolor" "255 215 0"}
 
 /////////////////////////
+
 На карте спавнится 100 куриц
 
 sv_minimum_desired_chicken_count 100
+
 /////////////////////////
+
 Коробки которые невозможно удалить
 
 ent_create func_brush {"model" "models/props/de_train/hr_t/train_cratestack/train_cratestack.vmdl"}
+
 /////////////////////////////////////////////////////////////
+
 Заспавнить капкан (может быть только один за раунд)
 
 ent_create prop_dynamic  {"model" "models/weapons/w_eq_beartrap_dropped.vmdl" "targetname" "prop_beartrap"};
@@ -24,49 +29,68 @@ ent_fire func_beartrap addoutput "OnStartTouch>beartrap_prepare>kill>0>2>0" 1;
 ent_fire func_beartrap addoutput "OnStartTouch>prop_beartrap>kill>0>2>0" 1;
 
 /////////////////////////
+
 Команда на спавн конвеера
 
 ent_create func_conveyor {"model" "models/ar_baggage/conveyor/conveyor_belt_01_078.vmdl" "speed" "1000" "movedir" "-180 -360 180"}
+
 /////////////////////////
+
 Команда на спавн бомбы.
 
 plant_bomb
+
 /////////////////////////
 
 Команда на удаление бомбы
 
 clear_bombs
+
 /////////////////////////
+
 Спавнит фонарик
 
 dlight_debug
+
 /////////////////////////
+
 Бомба взрывает всю карту
 
 map_setbombradius 9999
 
 /////////////////////////
+
 Получать 1 урон каждую секунду
 
 mp_global_damage_per_second 1
+
 /////////////////////////
+
 Команда чтоб взаимодействовать на большой дистанции (по умолчанию 80)
 
 player_use_radius 9999
+
 /////////////////////////
+
 Трупы смешно отлетают после смерти (по умолчанию 1)
 
 ragdoll_gravity_scale 0.1
+
 /////////////////////////
+
 Игрок скользит по земле, как по льду (по умолчанию 5.2)
 
 sv_friction 1
+
 /////////////////////////
+
 Игрок моментально регенерируется
 
 sv_regeneration_force_on 1
+
 /////////////////////////
-Команда на бакшот-рулетку. Прописать, когда выбросил дробовик nova
+
+Команда на бакшот-рулетку. Прописать, когда смотришь на какую-то поверхность
 
 mp_autokick 0;
 sv_cheats 1;
