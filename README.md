@@ -1,23 +1,41 @@
-Заспавнить золотой дигл 
+- [Заспавнить золотой дигл](#заспавнить-золотой-дигл)
+- [На карте спавнится 100 куриц](#на-карте-спавнится-100-куриц)
+- [Коробки которые невозможно удалить](#коробки-которые-невозможно-удалить)
+- [Заспавнить капкан (может быть только один за раунд)](#заспавнить-капкан-может-быть-только-один-за-раунд)
+- [Спавн конвеера](#спавн-конвеера)
+- [Спавн бомбы](#спавн-бомбы)
+- [Удаление бомбы](#удаление-бомбы)
+- [Спавнит фонарик](#спавнит-фонарик)
+- [Бомба взрывает всю карту](#бомба-взрывает-всю-карту)
+- [Получать 1 урон каждую секунду](#получать-1-урон-каждую-секунду)
+- [Взаимодействовие на большой дистанции (по умолчанию 80)](#взаимодействовие-на-большой-дистанции-по-умолчанию-80)
+- [Трупы смешно отлетают после смерти (по умолчанию 1)](#трупы-смешно-отлетают-после-смерти-по-умолчанию-1)
+- [Игрок скользит по земле, как по льду (по умолчанию 5.2)](#игрок-скользит-по-земле-как-по-льду-по-умолчанию-52)
+- [Игрок моментально регенерируется](#игрок-моментально-регенерируется)
+- [Команда на бакшот-рулетку. Прописать, когда смотришь на какую-то поверхность](#команда-на-бакшот-рулетку-прописать-когда-смотришь-на-какую-то-поверхность)
+- [Дефьюз бомбы за 0.000 до взрыва. Прописывать, когда игрешь за КТ](#дефьюз-бомбы-за-0000-до-взрыва-прописывать-когда-игрешь-за-кт)
+- [Хаешки становятся супер-большими, когда ударяются об стену](#хаешки-становятся-супер-большими-когда-ударяются-об-стену)
+- [Спавн бета-макета второго даста. Прописывать, когда играешь на dust2](#спавн-бета-макета-второго-даста-прописывать-когда-играешь-на-dust2)
+- [Куб, который можно перетаскивать, с помощью команды (ent\_grab -toggle)](#куб-который-можно-перетаскивать-с-помощью-команды-ent_grab--toggle)
 
+
+## Заспавнить золотой дигл
+```
 subclass_create weapon_deagle_prefab {"classname" "weapon_awp" "rendercolor" "255 215 0"}
+```
 
-/////////////////////////
-
-На карте спавнится 100 куриц
-
+## На карте спавнится 100 куриц
+```
 sv_minimum_desired_chicken_count 100
+```
 
-/////////////////////////
-
-Коробки которые невозможно удалить
-
+## Коробки которые невозможно удалить
+```
 ent_create func_brush {"model" "models/props/de_train/hr_t/train_cratestack/train_cratestack.vmdl"}
+```
 
-/////////////////////////////////////////////////////////////
-
-Заспавнить капкан (может быть только один за раунд)
-
+## Заспавнить капкан (может быть только один за раунд)
+```
 ent_create prop_dynamic  {"model" "models/weapons/w_eq_beartrap_dropped.vmdl" "targetname" "prop_beartrap"};
 ent_create func_bomb_target {"model" "models/props/de_dust/hr_dust/dust_soccerball/dust_soccer_ball001.vmdl" "isenabled" "1" "targetname" "func_beartrap"};
 ent_fire func_beartrap addoutput OnStartTouch>!activator>sethealth>-1>0>0 1;
@@ -27,71 +45,60 @@ ent_create ambient_generic {"targetname" "beartrap_prepare" "message" "radio_com
 ent_fire func_beartrap addoutput "OnStartTouch>beartrap_prepare>playsound>0>0>0" 1;
 ent_fire func_beartrap addoutput "OnStartTouch>beartrap_prepare>kill>0>2>0" 1;
 ent_fire func_beartrap addoutput "OnStartTouch>prop_beartrap>kill>0>2>0" 1;
+```
 
-/////////////////////////
-
-Команда на спавн конвеера
-
+## Спавн конвеера
+```
 ent_create func_conveyor {"model" "models/ar_baggage/conveyor/conveyor_belt_01_078.vmdl" "speed" "1000" "movedir" "-180 -360 180"}
+```
 
-/////////////////////////
-
-Команда на спавн бомбы.
-
+## Спавн бомбы
+```
 plant_bomb
+```
 
-/////////////////////////
-
-Команда на удаление бомбы
-
+## Удаление бомбы
+```
 clear_bombs
+```
 
-/////////////////////////
-
-Спавнит фонарик
-
+## Спавнит фонарик
+```
 dlight_debug
+```
 
-/////////////////////////
-
-Бомба взрывает всю карту
-
+## Бомба взрывает всю карту
+```
 map_setbombradius 9999
+```
 
-/////////////////////////
-
-Получать 1 урон каждую секунду
-
+## Получать 1 урон каждую секунду
+```
 mp_global_damage_per_second 1
+```
 
-/////////////////////////
-
-Команда чтоб взаимодействовать на большой дистанции (по умолчанию 80)
-
+## Взаимодействовие на большой дистанции (по умолчанию 80)
+```
 player_use_radius 9999
+```
 
-/////////////////////////
-
-Трупы смешно отлетают после смерти (по умолчанию 1)
-
+## Трупы смешно отлетают после смерти (по умолчанию 1)
+```
 ragdoll_gravity_scale 0.1
+```
 
-/////////////////////////
-
-Игрок скользит по земле, как по льду (по умолчанию 5.2)
-
+## Игрок скользит по земле, как по льду (по умолчанию 5.2)
+```
 sv_friction 1
+```
 
-/////////////////////////
-
-Игрок моментально регенерируется
-
+## Игрок моментально регенерируется
+```
 sv_regeneration_force_on 1
+```
 
-/////////////////////////
-
-Команда на бакшот-рулетку. Прописать, когда смотришь на какую-то поверхность
-
+## Команда на бакшот-рулетку. Прописать, когда смотришь на какую-то поверхность
+```
 mp_autokick 0;
 sv_cheats 1;
 mp_death_drop_gun 1;
@@ -149,24 +156,21 @@ ent_fire dor alpha 0 1;
 ent_fire weapon_nova fireuser3:1;
 ent_create env_particle_glow {"effect_textureOverride" "materials\models\weapons\shared\shells\shells_color_tga_748fe611.vtex" "targetname" "kanye" "effect_name" "particles/weapons/cs_weapon_fx/weapon_shell_casing_shotgun.vpcf"};
 ent_create env_particle_glow {"effect_textureOverride" "materials/particle/fire_particle_3/fire_particle_3.vtex" "targetname" "kanye2" "effect_name" "particles/inferno_fx/explosion_incend_air_fallingfire.vpcf"};
+```
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-Команда на дефьюз бомбы за 0.000 до взрыва. Прописывать, когда игрешь за КТ.
-
+## Дефьюз бомбы за 0.000 до взрыва. Прописывать, когда игрешь за КТ
+```
 sv_cheats 1;
-mp_anyone_can_pickup_c4 1; 
-give weapon_c4; 
+mp_anyone_can_pickup_c4 1;
+give weapon_c4;
 ent_create point_servercommand {"targetname" "point_servercomman"};
 ent_fire point_servercommand addoutput "classname func_brush";
 ent_fire func_bomb_target addoutput BombPlanted>point_servercomman>command>+use>34.98>0 1;
 ent_fire func_bomb_target addoutput BombPlanted>point_servercomman>command>-use>40>0 1;
+```
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-Команда, чтоб хаешки становились супер-большими, когда ударяются об стену.
-
+## Хаешки становятся супер-большими, когда ударяются об стену
+```
 sv_cheats 1;
 ent_create logic_eventlistener {"EventName" "grenade_bounce" "isEnabled" "1" "targetname" "game_3"};
 sv_infinite_ammo 1;
@@ -175,11 +179,10 @@ ent_create point_servercommand;
 ent_fire !player addoutput OnUser3>point_servercommand>command>grenkis>0>0;
 alias grenkis "ent_fire game_3 addoutput OnEventFired>hegrenade_projectile>setscale>10>0>0";
 ent_fire !player fireuser3:1;
+```
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-Команда на спавн бета-макета второго даста. Прописывать, когда играешь на dust2
-
+## Спавн бета-макета второго даста. Прописывать, когда играешь на dust2
+```
 sv_cheats 1;
 ent_create prop_dynamic {"model" "models\props\de_dust\hr_dust\s2_reference_geo\s2_reference_center.vmdl" "angles" "180 0 180" "origin" "0 0 0"};
 ent_create prop_dynamic {"model" "models\props\de_dust\hr_dust\s2_reference_geo\s2_reference_kasbah1.vmdl" "angles" "180 0 180" "origin" "0 0 0"};
@@ -191,11 +194,9 @@ ent_create prop_dynamic {"model" "models\props\de_dust\hr_dust\s2_reference_geo\
 ent_create prop_dynamic {"model" "models\props\de_dust\hr_dust\s2_reference_geo\s2_reference_urban3.vmdl" "angles" "180 0 180" "origin" "0 0 0"};
 ent_create prop_dynamic {"model" "models\props\de_dust\hr_dust\s2_reference_geo\s2_reference_urban4.vmdl" "angles" "180 0 180" "origin" "0 0 0"};
 ent_create prop_dynamic {"model" "models\props\de_dust\hr_dust\s2_reference_geo\s2_reference_urban5.vmdl" "angles" "180 0 180" "origin" "0 0 0"}
+```
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-Куб, который можно перетаскивать, с помощью команды (ent_grab -toggle)
-
+## Куб, который можно перетаскивать, с помощью команды (ent_grab -toggle)
+```
 ent_create func_pushable {"model" "models\de_inferno\stone_wall_09\cube_test.vmdl"}
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+```
